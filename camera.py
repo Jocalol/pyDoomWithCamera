@@ -62,10 +62,6 @@ def camera_input(cap, use_camera_frame):
                             lineType=cv2.LINE_AA
                         )
 
-
-
-
-
         cv2.line(image_flip, (int(image_flip.shape[1] / 3), 0),
                  (int(image_flip.shape[1] / 3),image_flip.shape[0]),
                  (0,0,255), 2)
