@@ -1,3 +1,5 @@
+from operator import truediv
+
 import cv2
 from ultralytics import YOLO
 
@@ -23,12 +25,20 @@ def camera_input(cap, use_camera_frame):
         #initialize the rectangle for the object outside the loop for convenience
         object_rect = None
 
+        #initialize shooting boolean variable
+        shooting = False
+
         #go through every object and check for scissors
         for object in objects:
 
             #get the object box's properties (coordinates, confidence, and the type of object)
             (x1, y1, x2, y2, conf, class_id) = object.boxes.data[0]
 
+            #if cell phone is detected, then shoot
+            if conf > 0.2 and model.names[int(class_id)] == "cell phone":
+                shooting = True
+
+            #if scissors are detected then:
             if model.names[int(class_id)] == "scissors":
 
                 #get the rectangle from the scissors and draw it
@@ -54,6 +64,8 @@ def camera_input(cap, use_camera_frame):
 
 
 
+
+
         cv2.line(image_flip, (int(image_flip.shape[1] / 3), 0),
                  (int(image_flip.shape[1] / 3),image_flip.shape[0]),
                  (0,0,255), 2)
@@ -70,10 +82,10 @@ def camera_input(cap, use_camera_frame):
                  (0, 0, 255), 2)
 
         use_camera_frame = False
-        return use_camera_frame, image_flip, object_rect
+        return use_camera_frame, image_flip, object_rect, shooting
     else:
         use_camera_frame = True
-        return use_camera_frame, None, None
+        return use_camera_frame, None, None, False
 
 def get_state(image, box):
     if box is not None:

@@ -25,14 +25,14 @@ use_camera_frame = True
 
 while True:
 
-    use_camera_frame, image, object_rect = camera_input(cap, use_camera_frame)
+    use_camera_frame, image, object_rect, shooting = camera_input(cap, use_camera_frame)
     cam_state = None
 
     if not use_camera_frame:
         cv2.imshow("Camera", image)
         cam_state = get_state(image, object_rect)
 
-    player.movement(cam_state)
+    player.movement(cam_state, shooting)
     drawing.background()
     walls, wall_shot = ray_casting_walls(player, drawing.textures)
     drawing.world(walls + [obj.object_locate(player) for obj in sprites.list_of_objects])
