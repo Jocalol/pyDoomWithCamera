@@ -25,12 +25,12 @@ use_camera_frame = True
 
 while True:
 
-    use_camera_frame, image, biggest = camera_input(cap, use_camera_frame)
+    use_camera_frame, image, object_rect = camera_input(cap, use_camera_frame)
     cam_state = None
 
     if not use_camera_frame:
         cv2.imshow("Camera", image)
-        cam_state = get_state(image, biggest)
+        cam_state = get_state(image, object_rect)
 
     player.movement(cam_state)
     drawing.background()
