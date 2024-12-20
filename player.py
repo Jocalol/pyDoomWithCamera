@@ -24,8 +24,8 @@ class Player:
         return collision_walls + [pygame.Rect(*obj.pos, obj.side, obj.side) for obj
                                   in self.sprites.list_of_objects if obj.blocked]
 
-    def movement(self, state, shooting_state):
-        self.keys_control(state, shooting_state)
+    def movement(self, state):
+        self.keys_control(state)
         self.mouse_control()
         self.rect.center = self.x, self.y
         self.angle %= DOUBLE_PI
@@ -57,7 +57,7 @@ class Player:
         self.x += dx
         self.y += dy
 
-    def keys_control(self, state, shooting_state):
+    def keys_control(self, state):
         sin_a = math.sin(self.angle)
         cos_a = math.cos(self.angle)
 
@@ -81,9 +81,6 @@ class Player:
             self.angle -= player_rotation_speed
         if (keys[pygame.K_RIGHT]) or state == "top_right" or state == "bottom_right":
             self.angle += player_rotation_speed
-
-        if (shooting_state == True) and not self.shot:
-            self.shot = True
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
