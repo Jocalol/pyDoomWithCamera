@@ -7,7 +7,7 @@ In order to play this iteration of DOOM, you must first decide on what the track
 
 ![My phone, for example](img/PhoneDemo.png)
 
-Then, without moving the object, you must hold Q for the tracker to adapt to that object, after that you should be good to go.
-If the tracker ever goes off course (which it will), you may do this process again.
+Then, without moving the object, you must hold Q for the tracker to adapt to it, after that you should be good to go.
+If the tracker ever goes off course (which it will), you may perform this process again.
 ## Controls
 ![How the screen is distributed](img/DoomCam_Demo.png)
