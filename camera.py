@@ -31,7 +31,6 @@ def camera_input(cap, use_camera_frame, roi_hist, track_window, term_crit, pad):
             if k == ord('a'):
                 print(str(track_window[0]) + ' ' + str(track_window[1]) + " " + str(track_window[2]) + ' ' + str(track_window[3]))
             elif k == ord('q'):
-                cv2.waitKey()
                 first_pos = (pad[0], pad[1])
 
                 if pad[2] > pad[0] and pad[3] > pad[1]:

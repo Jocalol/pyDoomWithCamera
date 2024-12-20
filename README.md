@@ -3,8 +3,11 @@
 
 # How to Play
 
-In order to play this iteration of DOOM, it is necessary that you have a pair of scissors and a cell phone in order for them to be detected by the camera.
-The player is controlled by the position of the scissors and is able to shoot by having a cellphone being detected anywhere in the camera's view.
+In order to play this iteration of DOOM, you must first decide on what the tracker will actually track. You must then put the object in the camera's range (the closer, the better) and drag your mouse from the top right of the object to the bottom left, like shown in the picture.
 
+![My phone, for example](img/PhoneDemo.png)
+
+Then, without moving the object, you must hold Q for the tracker to adapt to that object, after that you should be good to go.
+If the tracker ever goes off course (which it will), you may do this process again.
 ## Controls
 ![How the screen is distributed](img/DoomCam_Demo.png)

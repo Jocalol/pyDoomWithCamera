@@ -82,6 +82,9 @@ class Player:
         if (keys[pygame.K_RIGHT]) or state == "top_right" or state == "bottom_right":
             self.angle += player_rotation_speed
 
+        if (state == "middle") and not self.shot:
+            self.shot = True
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 exit()

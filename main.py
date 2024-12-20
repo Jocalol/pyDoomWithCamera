@@ -31,7 +31,7 @@ ret, image = cap.read()
 
 image_flip = cv2.flip(image, 1)
 
-x, y, w, h = 500, 150, 45, 90  # simply hardcoded the values
+x, y, w, h = 215, 160, 210, 160  # simply hardcoded the values
 img2 = cv2.rectangle(image_flip, (x, y), (x + w, y + h), 255, 2)
 cv2.imshow('Camera', img2)
 cv2.waitKey()
@@ -67,7 +67,6 @@ while True:
 
     pad = (mouseX, mouseY, mouse2X, mouse2Y)
     use_camera_frame, image, track_window, roi_hist = camera_input(cap, use_camera_frame, roi_hist, track_window, term_crit, pad)
-    print(track_window)
     cam_state = None
 
     if not use_camera_frame:
