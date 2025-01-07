@@ -31,10 +31,8 @@ ret, image = cap.read()
 
 image_flip = cv2.flip(image, 1)
 
-x, y, w, h = 215, 160, 210, 160  # simply hardcoded the values
+x, y, w, h = 215, 160, 210, 160
 img2 = cv2.rectangle(image_flip, (x, y), (x + w, y + h), 255, 2)
-cv2.imshow('Camera', img2)
-cv2.waitKey()
 
 track_window = (x, y, w, h)
 

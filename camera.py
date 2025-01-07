@@ -1,8 +1,5 @@
 import cv2
 import numpy as np
-from ultralytics import YOLO
-
-model = YOLO("yolov8m.pt")
 
 def camera_input(cap, use_camera_frame, roi_hist, track_window, term_crit, pad):
     if use_camera_frame:
@@ -38,7 +35,6 @@ def camera_input(cap, use_camera_frame, roi_hist, track_window, term_crit, pad):
 
                     track_window = (first_pos[0], first_pos[1], second_pos[0], second_pos[1])
 
-                    print(str(first_pos) + "hello" + str(second_pos))
                     roi = image_flip[y:y + h, x:x + w]
                     hsv_roi = cv2.cvtColor(roi, cv2.COLOR_BGR2HSV)
                     mask = cv2.inRange(hsv_roi, np.array((0., 60., 32.)), np.array((180., 255., 255.)))
